@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Votre compte{% endblock %}
+
+{% block content %}
+<div class="container-fluid member-app">
+    <div class="row">
+        <div class="col-md-10 col-lg-8 mx-auto">
+            <h2>Modification de l'utilisateur</h2>
+            <br />
+
+            <form method="POST">
+                <div class="form-group">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <p><a href="{% url ''}">Modifier votre mot de passe</a></p>
+                    <a href="{% url 'home.html' %}" class="btn btn-secondary">Annuler</a>
+                    <button type="submit" class="btn btn-primary">Valider les modifications</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
