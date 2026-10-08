@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Gestion de tournois de Beach Volley (2 contre 2)</h1>
+
+    <p>Bienvenue dans notre application de gestion de tournois de Beach Volley !</p>
+
+    <a href="{% url 'tournament_list' %}">Voir les tournois</a>
+
+    <div>
+        <img src="{% static 'IMAGES/tournois.png' %}" alt="Tournois de Beach Volley" class="home-image">
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if two_players %}
+            <h1>Créer une équipe de deux joueurs</h1>
+        {% else %}
+            <h1>Créer une équipe d'un joueur</h1>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            <h3>Équipe</h3>
+
+            {{ team_form.as_p }}
+
+            {% if two_players %}
+                <h3>Joueur 1</h3>
+                {{ player1_form.as_p }}
+
+                <h3>Joueur 2</h3>
+                {{ player2_form.as_p }}
+            {% else %}
+                <h3>Joueur</h3>
+                {{ player_form.as_p}}
+            {% endif %}
+
+            <button type="submit" class="btn btn-primary">Créer l'équipe</button>
+        </form>
+    {% endif %}
+{% endblock %}

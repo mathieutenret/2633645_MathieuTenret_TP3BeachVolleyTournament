@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h1>Modifier l'équipe</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <h3>Équipe</h3>
+
+    {{ team_form.as_p }}
+
+    <hr>
+
+    <h3>Joueur 1</h3>
+
+    {{ player1_form.as_p }}
+
+    {% if player2_form %}
+        <hr>
+
+        <h3>Joueur 2</h3>
+
+        {{ player2_form.as_p }}
+    {% endif %}
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+    <a href="{% url 'tournament_list' %}" class="btn btn-secondary">Annuler</a>
+</form>
+{% endif %}
+{% endblock %}

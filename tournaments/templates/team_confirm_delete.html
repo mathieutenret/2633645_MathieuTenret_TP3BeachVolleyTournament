@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <h1>Supprimer l'équipe</h1>
+
+    <p>Voulez-vous vraiment supprimer l'équipe <strong>{{ team.name }}</strong> ?</p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <button type="submit" class="btn btn-danger"> Supprimer </button>
+
+        <a href="{% url 'tournament_list' %}"class="btn btn-secondary">Annuler</a>
+    </form>
+    {% endif %}
+{% endblock %}

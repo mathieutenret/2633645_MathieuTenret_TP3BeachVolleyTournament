@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <h1>Ajouter un partenaire</h1>
+
+    <p>Équipe : <strong>{{ team.name }}</strong></p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Ajouter le joueur</button>
+    </form>
+    {% endif %}
+{% endblock %}
