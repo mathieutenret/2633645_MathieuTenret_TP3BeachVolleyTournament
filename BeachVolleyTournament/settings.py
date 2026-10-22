@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Ajoute les champs propre à chaque langue pour la traduction (point 7)
+    'modeltranslation',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,11 +42,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tournaments',
     'member_app',
+
+    # Activation des signaux (point 3)
+    'tournaments.app.TournamentsConfig',
+    'member_app.apps.MemberAppConfig',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # Détermine la langue à utiliser pour chaque requête (point 7)
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -104,20 +113,44 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# Ajout des langues proposées : français par défaut et anglais (point 7)
+LANGUAGE_CODE = 'fr'
+LANGUAGES = [
+    ('fr', 'Français'),
+    ('en', 'English'),
+]
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Montreal'
 
 USE_I18N = True
 
 USE_TZ = True
 
+# Ajout de l'emplacement des fichiers de traduction (point 7)
+LOCALE_PATHS = [BASE_DIR / 'locale',] 
+
+# Configuration de django-modeltranslation (Point 7)
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'fr'
+MODELTRANSLATION_LANGUAGES = ('fr', 'en')
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('fr',)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
-STATIC_URL = 'static/'
+# Distinction des fichiers statiques des médias (point 2)
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
+# Redirection des utilisateurs non connectés vers login (point 6)
+LOGIN_URL = 'login'
+
+# Redirection vers home après connexion / déconnexion
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
+# Ajout automatique de la clé primaire lorsqu'elle n'est pas déclarée
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration

@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import Tournament, Team, Player
 from django.utils.html import format_html
+# TranslationAdmin expose les différentes langues dans l'admin (Point 7)
+from modeltranslation.admin import TranslationAdmin
 
 class TournamentAdmin(admin.ModelAdmin):
     list_display = ['name', 'date', 'location']
@@ -9,7 +11,7 @@ class TournamentAdmin(admin.ModelAdmin):
     search_fields = ['name',]
     readonly_fields = ['image_preview',]
 
-    def product_name_with_image(self, obj):
+    def name(self, obj):
         if obj.image:
             return format_html(
                 '<span style="display:flex; align-items:center;">'
@@ -20,8 +22,8 @@ class TournamentAdmin(admin.ModelAdmin):
                 obj.name,
             )
         return obj.name
-    product_name_with_image.short_description = "Nom"
-    product_name_with_image.admin_order_field = 'name'
+    name.short_description = "Nom"
+    name.admin_order_field = 'name'
 
     def image_preview(self, obj):
         if obj.image:
