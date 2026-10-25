@@ -1,3 +1,29 @@
+# Fichiers Visual Studio / .NET
 .vs/
 bin/
 obj/
+
+# Environnement virtuel Python
+.venv/
+venv/
+
+# Fichiers temporaires Python
+__pycache__/
+*.py[cod]
+
+# Configuration locale
+.env
+.env.*
+!.env.example
+
+# Base de données locale
+db.sqlite3
+
+# Fichiers temporaires
+*.log
+.pytest_cache/
+.vscode/
+.idea/
+
+# Archives générées
+*.zip

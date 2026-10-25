@@ -1,6 +1,8 @@
-{% load static %}
+<!-- Chargement des outils pour les fichiers statiques et la traduction (Point 7)-->
+{% load static i18n %}
 <!DOCTYPE html>
-<html lang="fr">
+<!-- Adaptation de la langue HTML à celle sélectionnée (Point 7)-->
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,16 +17,48 @@
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">Beach Volley</a>
 
+            <!-- Traduction des liens de navigation à l'aide de {% trans "..." %} (Point 7) -->
             <div class="navbar-nav">
-                <a class="nav-link" href="{% url 'home' %}">Accueil</a>
+                <a class="nav-link" href="{% url 'home' %}">{% trans "Accueil" %}</a>
                 
-                <a class="nav-link" href="{% url 'tournament_list' %}">Tournois</a>
+                <!-- Tournois visibles que pour les utilisateurs connectés (Point 6)-->
+                {% if user.is_authenticated %}
+                    <a class="nav-link" href="{% url 'tournament_list' %}">{% trans "Tournois" %}</a>
+                {% endif %}
 
-                <a class="nav-link" href="{% url 'create_team_one' %}">Équipe 1 joueur</a>
+                <!-- Liens de création visibles que pour les utilisateurs connectés et autorisés (Point 6)-->
+                {% if user.is_authenticated and perms.tournaments.add_team and perms.tournaments.add_player %}
+                <a class="nav-link" href="{% url 'create_team_one' %}">{% trans "Équipe 1 joueur" %}</a>
 
-                <a class="nav-link" href="{% url 'create_team_two' %}">Équipe 2 joueurs</a>
+                <a class="nav-link" href="{% url 'create_team_two' %}">{% trans "Équipe 2 joueurs" %}</a>
+                {% endif %}
 
-                <a class="nav-link" href="{% url 'about' %}">À propos</a>
+                <!-- Connexion/Inscription ou Déconnexion en fonction du statut de l'utilisateur (Point 6)-->
+                {% if user.is_authenticated %}
+                    <a class="nav-link" href="{% url 'edit_user' %}">{% trans "Mon profil" %}</a>
+
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link nav-link">{% trans "Déconnexion" %}</button>
+                    </form>
+                {% else %}
+                    <a class="nav-link" href="{% url 'login' %}">{% trans "Connexion" %}</a>
+
+                    <a class="nav-link" href="{% url 'sign_in' %}">{% trans "Inscription" %}</a>
+                {% endif %}
+                
+                <a class="nav-link" href="{% url 'about' %}">{% trans "À propos" %}</a>
+                
+                <!-- Sélecteur de langue (français / anglais) (Point 7) -->
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+
+                    <select name="language" class="form-select" onchange="this.form.submit()">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        <option value="fr" {% if LANGUAGE_CODE == 'fr' %}selected{% endif %}>Français</option>
+                        <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+                    </select>
+                </form>
             </div>
         </div>
     </nav>

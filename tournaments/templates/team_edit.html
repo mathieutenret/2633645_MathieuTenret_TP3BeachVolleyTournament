@@ -1,33 +1,36 @@
 {% extends 'base.html' %}
+<!-- Chargement des outils de traduction (Point 7) -->
+{% load i18n %}
 
+<!-- Traduction du titre, des boutons et des libellés à l'aide de à l'aide de {% trans "..." %} (Point 7) -->
 {% block content %}
 {% if user.is_authenticated %}
-<h1>Modifier l'équipe</h1>
+<h1>{% trans "Modifier l'équipe" %}</h1>
 
 <form method="post">
     {% csrf_token %}
 
-    <h3>Équipe</h3>
+    <h3>{% trans "Équipe" %}</h3>
 
     {{ team_form.as_p }}
 
     <hr>
 
-    <h3>Joueur 1</h3>
+    <h3>{% trans "Joueur 1" %}</h3>
 
     {{ player1_form.as_p }}
 
     {% if player2_form %}
         <hr>
 
-        <h3>Joueur 2</h3>
+        <h3>{% trans "Joueur 2" %}</h3>
 
         {{ player2_form.as_p }}
     {% endif %}
 
-    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <button type="submit" class="btn btn-primary">{% trans "Enregistrer" %}</button>
 
-    <a href="{% url 'tournament_list' %}" class="btn btn-secondary">Annuler</a>
+    <a href="{% url 'tournament_list' %}" class="btn btn-secondary">{% trans "Annuler" %}</a>
 </form>
 {% endif %}
 {% endblock %}

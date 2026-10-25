@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
+<!-- Chargement des outils de traduction (Point 7) -->
+{% load i18n %}
 
+<!-- Traduction du titre, des boutons et des libellés à l'aide de à l'aide de {% trans "..." %} (Point 7) -->
 {% block content %}
     {% if user.is_authenticated %}
-    <h1>Supprimer l'équipe</h1>
+    <h1>{% trans "Supprimer l'équipe" %}</h1>
 
-    <p>Voulez-vous vraiment supprimer l'équipe <strong>{{ team.name }}</strong> ?</p>
+    <p>{% blocktrans with team_name=team.name %}Voulez-vous vraiment supprimer l'équipe <strong>{{ team_name }}</strong> ?{% endblocktrans %}</p>
 
     <form method="post">
         {% csrf_token %}
 
-        <button type="submit" class="btn btn-danger"> Supprimer </button>
+        <button type="submit" class="btn btn-danger"> {% trans "Supprimer" %} </button>
 
-        <a href="{% url 'tournament_list' %}"class="btn btn-secondary">Annuler</a>
+        <a href="{% url 'tournament_list' %}"class="btn btn-secondary">{% trans "Annuler" %}</a>
     </form>
     {% endif %}
 {% endblock %}

@@ -2,6 +2,12 @@ from .models import Team, Tournament
 from .forms import OnePlayerForm, TwoPlayersForm
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
+# Paginator permet de répartir les tournois sur plusieurs pages (Point 4)
+from django.core.paginator import Paginator
+# Protection des vues selon les permissions Django (Point 6)
+from django.contrib.auth.decorators import login_required, permission_required
+# Chargement des outils de traduction et traduction des messages avec _(...)  (Point 7)
+from django.utils.translation import gettext as _
 
 def home(request):
     return render(request, 'home.html')
@@ -9,11 +15,26 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+# La liste des tournois est réservée aux utilisateurs connectés (Point 6)
+@login_required
 def tournament_list(request):
     tournaments = Tournament.objects.prefetch_related('teams__players').all()
 
+    # Affichage de 5 tournois par page (Point 4)
+    paginator = Paginator(tournaments, 5)
+
+    # Récupération du numéro de page depuis l'URL (Point 4)
+    page_number = request.GET.get('page')
+
+    # Récupération des tournois de la page demandée (Point 4)
+    tournaments = paginator.get_page(page_number)
+
     return render(request, 'tournament_list.html', {'tournaments' : tournaments})
 
+# La création d'équipe est réservée aux utilisateurs connectés et autorisés (Point 6)
+@login_required
+@permission_required('tournaments.add_team', raise_exception=True)
+@permission_required('tournaments.add_player', raise_exception=True)
 def create_team_one(request):
     if request.method == 'POST':
         team_form = TwoPlayersForm(request.POST)
@@ -23,7 +44,7 @@ def create_team_one(request):
             tournament = team_form.cleaned_data['tournament']
 
             if tournament.teams.count() >= 16:
-                messages.error(request, 'Impossible de créer cette équipe : le tournoi possède déjà 16 équipes !')
+                messages.error(request, _('Impossible de créer cette équipe : le tournoi possède déjà 16 équipes !'))
             else:
                 team = team_form.save()
 
@@ -31,7 +52,7 @@ def create_team_one(request):
                 player.team = team
                 player.save()
 
-                messages.success(request, "L'équipe a été créée avec succès !")
+                messages.success(request, _("L'équipe a été créée avec succès !"))
                 return redirect('tournament_list')
     else:
         team_form = TwoPlayersForm()
@@ -39,7 +60,10 @@ def create_team_one(request):
 
     return render(request, 'two_players_form.html', {'team_form': team_form, 'player_form': player_form, 'two_players': False})
 
-
+# La création d'équipe est réservée aux utilisateurs connectés et autorisés (Point 6)
+@login_required
+@permission_required('tournaments.add_team', raise_exception=True)
+@permission_required('tournaments.add_player', raise_exception=True)
 def create_team_two(request):
     if request.method == 'POST':
         team_form = TwoPlayersForm(request.POST)
@@ -50,7 +74,7 @@ def create_team_two(request):
             tournament = team_form.cleaned_data['tournament']
 
             if tournament.teams.count() >= 16:
-                messages.error(request, 'Impossible de créer cette équipe : le tournoi possède déjà 16 équipes !')
+                messages.error(request, _('Impossible de créer cette équipe : le tournoi possède déjà 16 équipes !'))
             else:
                 team = team_form.save()
 
@@ -62,7 +86,7 @@ def create_team_two(request):
                 player2.team = team
                 player2.save()
 
-                messages.success(request, "L'équipe a été créée avec succès !")
+                messages.success(request, _("L'équipe a été créée avec succès !"))
                 return redirect('tournament_list')
     else:
         team_form = TwoPlayersForm()
@@ -71,11 +95,14 @@ def create_team_two(request):
 
     return render(request, 'two_players_form.html', {'team_form': team_form, 'player1_form': player1_form, 'player2_form': player2_form, 'two_players': True})
 
+# L'ajout d'un joueur est réservé aux utilisateurs connectés et autorisés (Point 6)
+@login_required
+@permission_required('tournaments.add_player', raise_exception=True)
 def add_player(request, team_id):
     team = get_object_or_404(Team, id=team_id)
 
     if team.players.count() >= 2:
-        messages.error(request, 'Cette équipe possède déjà deux joueurs !')
+        messages.error(request, _('Cette équipe possède déjà deux joueurs !'))
         return redirect('tournament_list')
 
     if request.method == 'POST':
@@ -86,13 +113,17 @@ def add_player(request, team_id):
             player.team = team
             player.save()
 
-            messages.success(request, 'Le joueur a été ajouté avec succès !')
+            messages.success(request, _('Le joueur a été ajouté avec succès !'))
             return redirect('tournament_list')
     else:
         form = OnePlayerForm()
 
     return render(request, 'one_player_form.html', {'form': form, 'team': team})
 
+# La modification d'une équipe est réservée aux utilisateurs connectés et autorisés (Point 6)
+@login_required
+@permission_required('tournaments.change_team', raise_exception=True)
+@permission_required('tournaments.change_player', raise_exception=True)
 def edit_team(request, team_id):
     team = get_object_or_404(Team, id=team_id)
 
@@ -115,7 +146,7 @@ def edit_team(request, team_id):
             new_tournament = team_form.cleaned_data['tournament']
 
             if (new_tournament != team.tournament and new_tournament.teams.count() >= 16):
-                messages.error(request, 'Impossible de déplacer cette équipe : le tournoi possède déjà 16 équipes !')
+                messages.error(request, _('Impossible de déplacer cette équipe : le tournoi possède déjà 16 équipes !'))
 
             else:
                 team_form.save()
@@ -124,7 +155,7 @@ def edit_team(request, team_id):
                 if player2_form:
                     player2_form.save()
 
-                messages.success(request, "L'équipe et les joueurs ont été modifiés avec succès !")
+                messages.success(request, _("L'équipe et les joueurs ont été modifiés avec succès !"))
                 return redirect('tournament_list')
     else:
         team_form = TwoPlayersForm(instance=team)
@@ -137,13 +168,16 @@ def edit_team(request, team_id):
 
     return render(request, 'team_edit.html', {'team': team, 'team_form': team_form, 'player1_form': player1_form, 'player2_form': player2_form})
 
+# La suppression d'une équipe est réservée aux utilisateurs connectés et autorisés (Point 6)
+@login_required
+@permission_required('tournaments.delete_team', raise_exception=True)
 def delete_team(request, team_id):
     team = get_object_or_404(Team, id=team_id)
 
     if request.method == 'POST':
         team.delete()
 
-        messages.success(request, "L'équipe a été supprimée avec succès !")
+        messages.success(request, _("L'équipe a été supprimée avec succès !"))
         return redirect('tournament_list')
 
     return render(request, 'team_confirm_delete.html', {'team': team})

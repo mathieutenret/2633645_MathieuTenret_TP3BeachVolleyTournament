@@ -1,0 +1,332 @@
+[
+    {
+        "model": "tournaments.tournament",
+        "pk": 1,
+        "fields": {
+            "name": "Beach Pro Tour Montréal",
+            "name_fr": "Beach Pro Tour Montréal",
+            "name_en": null,
+            "date": "2026-10-11",
+            "location": "Montréal",
+            "location_fr": "Montréal",
+            "location_en": null,
+            "image": ""
+        }
+    },
+    {
+        "model": "tournaments.tournament",
+        "pk": 2,
+        "fields": {
+            "name": "Ultimate Québec Beach Volley",
+            "name_fr": "Ultimate Québec Beach Volley",
+            "name_en": null,
+            "date": "2026-10-13",
+            "location": "Québec",
+            "location_fr": "Québec",
+            "location_en": null,
+            "image": ""
+        }
+    },
+    {
+        "model": "tournaments.tournament",
+        "pk": 3,
+        "fields": {
+            "name": "Chicoutimi Beach Tournament",
+            "name_fr": "Chicoutimi Beach Tournament",
+            "name_en": null,
+            "date": "2026-10-14",
+            "location": "Chicoutimi",
+            "location_fr": "Chicoutimi",
+            "location_en": null,
+            "image": ""
+        }
+    },
+    {
+        "model": "tournaments.tournament",
+        "pk": 4,
+        "fields": {
+            "name": "Tournoi de Volley d'Ottawa",
+            "name_fr": "Tournoi de Volley d'Ottawa",
+            "name_en": "Ottawa VolleyBall Championship",
+            "date": "2026-11-07",
+            "location": "Ottawa",
+            "location_fr": "Ottawa",
+            "location_en": "Ottawa",
+            "image": "tournaments/Ottawa_VolleyBall_Championship.png"
+        }
+    },
+    {
+        "model": "tournaments.tournament",
+        "pk": 5,
+        "fields": {
+            "name": "Open de Volleyball de Toronto",
+            "name_fr": "Open de Volleyball de Toronto",
+            "name_en": "Toronto Beach Volleyball Open",
+            "date": "2027-07-18",
+            "location": "Toronto",
+            "location_fr": "Toronto",
+            "location_en": "Toronto",
+            "image": "tournaments/Toronto_Beach_Volleyball_Open.png"
+        }
+    },
+    {
+        "model": "tournaments.tournament",
+        "pk": 6,
+        "fields": {
+            "name": "Classique de BeachVolley de Vancouver",
+            "name_fr": "Classique de BeachVolley de Vancouver",
+            "name_en": "Vancouver Beach Volleyball Classic",
+            "date": "2027-07-25",
+            "location": "Vancouver",
+            "location_fr": "Vancouver",
+            "location_en": "Vancouver",
+            "image": "tournaments/Vancouver_Beach_Volleyball_Classic.png"
+        }
+    },
+    {
+        "model": "tournaments.team",
+        "pk": 1,
+        "fields": {
+            "name": "Ultimates",
+            "tournament": 1,
+            "paid": true
+        }
+    },
+    {
+        "model": "tournaments.team",
+        "pk": 2,
+        "fields": {
+            "name": "Rangers",
+            "tournament": 1,
+            "paid": false
+        }
+    },
+    {
+        "model": "tournaments.team",
+        "pk": 3,
+        "fields": {
+            "name": "Les Pros",
+            "tournament": 6,
+            "paid": true
+        }
+    },
+    {
+        "model": "tournaments.player",
+        "pk": 1,
+        "fields": {
+            "firstname": "John",
+            "lastname": "Doe",
+            "email": "johndoe2@gmail.com",
+            "team": 1
+        }
+    },
+    {
+        "model": "tournaments.player",
+        "pk": 2,
+        "fields": {
+            "firstname": "Éric",
+            "lastname": "Bernier",
+            "email": "ericbernier@outlook.ca",
+            "team": 2
+        }
+    },
+    {
+        "model": "tournaments.player",
+        "pk": 3,
+        "fields": {
+            "firstname": "Jean",
+            "lastname": "Bernard",
+            "email": "jbernard@gmail.com",
+            "team": 2
+        }
+    },
+    {
+        "model": "tournaments.player",
+        "pk": 4,
+        "fields": {
+            "firstname": "David",
+            "lastname": "Bernard",
+            "email": "davidbernard@gmail.com",
+            "team": 3
+        }
+    },
+    {
+        "model": "auth.group",
+        "fields": {
+            "name": "Organisateurs",
+            "permissions": [
+                [
+                    "add_player",
+                    "tournaments",
+                    "player"
+                ],
+                [
+                    "change_player",
+                    "tournaments",
+                    "player"
+                ],
+                [
+                    "delete_player",
+                    "tournaments",
+                    "player"
+                ],
+                [
+                    "view_player",
+                    "tournaments",
+                    "player"
+                ],
+                [
+                    "add_team",
+                    "tournaments",
+                    "team"
+                ],
+                [
+                    "change_team",
+                    "tournaments",
+                    "team"
+                ],
+                [
+                    "delete_team",
+                    "tournaments",
+                    "team"
+                ],
+                [
+                    "view_team",
+                    "tournaments",
+                    "team"
+                ]
+            ]
+        }
+    },
+    {
+        "model": "auth.group",
+        "fields": {
+            "name": "Participants",
+            "permissions": [
+                [
+                    "add_player",
+                    "tournaments",
+                    "player"
+                ],
+                [
+                    "view_player",
+                    "tournaments",
+                    "player"
+                ],
+                [
+                    "add_team",
+                    "tournaments",
+                    "team"
+                ],
+                [
+                    "view_team",
+                    "tournaments",
+                    "team"
+                ]
+            ]
+        }
+    },
+    {
+        "model": "auth.group",
+        "fields": {
+            "name": "Employés",
+            "permissions": [
+                [
+                    "add_player",
+                    "tournaments",
+                    "player"
+                ],
+                [
+                    "change_player",
+                    "tournaments",
+                    "player"
+                ],
+                [
+                    "delete_player",
+                    "tournaments",
+                    "player"
+                ],
+                [
+                    "view_player",
+                    "tournaments",
+                    "player"
+                ],
+                [
+                    "add_team",
+                    "tournaments",
+                    "team"
+                ],
+                [
+                    "change_team",
+                    "tournaments",
+                    "team"
+                ],
+                [
+                    "delete_team",
+                    "tournaments",
+                    "team"
+                ],
+                [
+                    "view_team",
+                    "tournaments",
+                    "team"
+                ]
+            ]
+        }
+    },
+    {
+        "model": "auth.user",
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$Dci7ecbaRBdZ1nnnVb9HpV$2AQ+apvJOFvPtxWeRp3YBhUrGJy5s06EUDyw6B8wZ8E=",
+            "last_login": "2026-10-25T22:42:54.390Z",
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "2633645@etu.cchic.ca",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2026-09-27T14:39:30.246Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$Z93zQdvVVNlqxKwAwmR3Bb$DX/vWuFKnxTSNHOm/TO6SFWUuxySo0GuYWTHjfgB93E=",
+            "last_login": "2026-10-25T16:44:43.261Z",
+            "is_superuser": false,
+            "username": "MathTen",
+            "first_name": "Mathieu",
+            "last_name": "Tenret",
+            "email": "2633645@etu.cchic.ca",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-10-25T16:42:30.803Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "fields": {
+            "password": "pbkdf2_sha256$1500000$KFdHd1OYzFNyMH9nf9igIi$c+aFsBDEOK0paoVGd20sP9KCqX1+ZQn561eKUXMCwMs=",
+            "last_login": "2026-10-25T17:41:03.771Z",
+            "is_superuser": false,
+            "username": "Employee",
+            "first_name": "Marc",
+            "last_name": "Tremblay",
+            "email": "marctremblay@cchic.ca",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-10-25T17:30:31Z",
+            "groups": [
+                [
+                    "Employés"
+                ]
+            ],
+            "user_permissions": []
+        }
+    }
+]

@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
+<!-- Chargement des outils de traduction (Point 7) -->
+{% load i18n %}
 
 {% block content %}
     {% if user.is_authenticated %}
-    <h1>Ajouter un partenaire</h1>
+    <!-- Traduction du titre à l'aide de {% trans "..." %} (Point 7) -->
+    <h1>{% trans "Ajouter un partenaire" %}</h1>
 
-    <p>Équipe : <strong>{{ team.name }}</strong></p>
+    <!-- Traduction du libellé de l'équipe à l'aide de {% trans "..." %} (Point 7) -->
+    <p>{% trans "Équipe" %} : <strong>{{ team.name }}</strong></p>
 
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-success">Ajouter le joueur</button>
+        <!-- Traduction du bouton à l'aide de {% trans "..." %} (Point 7) -->
+        <button type="submit" class="btn btn-success">{% trans "Ajouter le joueur" %}</button>
     </form>
     {% endif %}
 {% endblock %}

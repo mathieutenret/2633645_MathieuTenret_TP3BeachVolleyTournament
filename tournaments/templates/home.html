@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
-{% load static %}
+<!-- Chargement des outils pour les fichiers statiques et la traduction (Point 7)-->
+{% load static i18n %}
 
 {% block content %}
 <div class="text-center">
-    <h1>Gestion de tournois de Beach Volley (2 contre 2)</h1>
+    <!-- Traduction des textes de la page d'accueil à l'aide de {% trans "..." %} (Point 7) -->
+    <h1>{% trans "Gestion de tournois de Beach Volley (2 contre 2)" %}</h1>
 
-    <p>Bienvenue dans notre application de gestion de tournois de Beach Volley !</p>
+    <p>{% trans "Bienvenue dans notre application de gestion de tournois de Beach Volley !" %}</p>
 
-    <a href="{% url 'tournament_list' %}">Voir les tournois</a>
+    <a href="{% url 'tournament_list' %}">{% trans "Voir les tournois" %}</a>
 
     <div>
-        <img src="{% static 'IMAGES/tournois.png' %}" alt="Tournois de Beach Volley" class="home-image">
+        <!-- Traduction du texte alternatif de l'image (Point 7) -->
+        <img src="{% static 'IMAGES/tournois.png' %}" alt="{% trans 'Tournois de Beach Volley' %}" class="home-image">
     </div>
 </div>
 {% endblock %}

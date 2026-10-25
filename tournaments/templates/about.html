@@ -1,19 +1,35 @@
 {% extends 'base.html' %}
+<!-- Chargement des outils de traduction (Point 7) -->
+{% load i18n group_tags %}
 
 {% block content %}
 <div class="text-center">
-    <h1>À propos</h1>
+    <!-- Traduction des textes de la page À propos à l'aide de {% trans "..." %} (Point 7) -->
+    <h1>{% trans "À propos" %}</h1>
 
-    <p>Bienvenue dans notre application de gestion de tournois de Beach Volley !</p>
+    {% if user.is_superuser or user|has_group:"Employés" or user|has_group:"Organisateurs" %}
 
-    <p>Cette application vous permet de gérer des tournois de Beach Volley 2 contre 2.</p>
+        <p>{% trans "Bienvenue dans notre application de gestion de tournois de Beach Volley !" %}</p>
 
-    <p>Chaque tournoi peut contenir 16 équipes au maximum.</p>
+        <p>{% trans "Cette application vous permet de gérer des tournois de Beach Volley 2 contre 2." %}</p>
 
-    <p>Une équipe peut être créée avec un seul joueur si celui-ci recherche un partenaire, via l'onglet "Équipe 1 joueur".</p>
+        <p>{% trans "Chaque tournoi peut contenir 16 équipes au maximum." %}</p>
 
-    <p>Une équipe complète est composée de deux joueurs. Elle peut être directement créée via l'onglet "Équipe 2 joueurs".</p>
+        <p>{% trans 'Une équipe peut être créée avec un seul joueur si celui-ci recherche un partenaire, via l\'onglet "Équipe 1 joueur".' %}</p>
 
-    <p>Une équipe de un joueur peut être complétée via le bouton "Ajouter un partenaire" de la page "Tournois".</p>
+        <p>{% trans 'Une équipe complète est composée de deux joueurs. Elle peut être directement créée via l\'onglet "Équipe 2 joueurs".' %}</p>
+
+        <p>{% trans 'Une équipe de un joueur peut être complétée via le bouton "Ajouter un partenaire" de la page "Tournois".' %}</p>
+
+    {% else %}
+        <p>{% trans "Bienvenue dans notre application de gestion de tournois de Beach Volley !" %}</p>
+
+        <p>{% trans "Pour participer à un tournoi, veuillez faire une demande d'inscription par téléphone ou par courriel." %}</p>
+
+        <p>{% trans "Téléphone :" %} +1 416 555 0123</p>
+
+        <p>{% trans "Courriel  :" %} beachvolleytournament@gmail.com</p>
+    {% endif %}
+
 </div>
 {% endblock %}

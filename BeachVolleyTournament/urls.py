@@ -27,6 +27,6 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
 ]
 
-# Rend les images accessibles via MEDIA_URL et MEDIA_ROOT (point 2)
+# Rend les images accessibles via MEDIA_URL et MEDIA_ROOT (Point 2)
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT,)

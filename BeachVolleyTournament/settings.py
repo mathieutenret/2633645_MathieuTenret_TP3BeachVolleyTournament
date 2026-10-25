@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # Ajoute les champs propre à chaque langue pour la traduction (point 7)
+    # Ajoute les champs propre à chaque langue pour la traduction (Point 7)
     'modeltranslation',
 
     'django.contrib.admin',
@@ -40,12 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tournaments',
-    'member_app',
 
-    # Activation des signaux (point 3)
-    'tournaments.app.TournamentsConfig',
-    'member_app.apps.MemberAppConfig',
+    # Activation des signaux en déclarant TournamentsConfig (Point 3)
+    'tournaments.apps.TournamentsConfig',
+    'member_app',
 ]
 
 MIDDLEWARE = [
@@ -113,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
 
-# Ajout des langues proposées : français par défaut et anglais (point 7)
+# Ajout des langues proposées : français par défaut et anglais en option (point 7)
 LANGUAGE_CODE = 'fr'
 LANGUAGES = [
     ('fr', 'Français'),
@@ -137,7 +135,7 @@ MODELTRANSLATION_FALLBACK_LANGUAGES = ('fr',)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
-# Distinction des fichiers statiques des médias (point 2)
+# Distinction des fichiers statiques et des médias (Point 2)
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'

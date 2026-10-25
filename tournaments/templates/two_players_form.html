@@ -1,31 +1,36 @@
 {% extends 'base.html' %}
+<!-- Chargement des outils de traduction (Point 7) -->
+{% load i18n %}
 
 {% block content %}
     {% if user.is_authenticated %}
+        <!-- Traduction des titres à l'aide de {% trans "..." %} (Point 7)-->
         {% if two_players %}
-            <h1>Créer une équipe de deux joueurs</h1>
+            <h1>{% trans "Créer une équipe de deux joueurs" %}</h1>
         {% else %}
-            <h1>Créer une équipe d'un joueur</h1>
+            <h1>{% trans "Créer une équipe d'un joueur" %}</h1>
         {% endif %}
 
         <form method="post">
             {% csrf_token %}
-            <h3>Équipe</h3>
+            <!-- Traduction des libellés de l'équipe et des joueurs à l'aide de {% trans "..." %} (Point 7) -->
+            <h3>{% trans "Équipe" %}</h3>
 
             {{ team_form.as_p }}
 
             {% if two_players %}
-                <h3>Joueur 1</h3>
+                <h3>{% trans "Joueur 1" %}</h3>
                 {{ player1_form.as_p }}
 
-                <h3>Joueur 2</h3>
+                <h3>{% trans "Joueur 2" %}</h3>
                 {{ player2_form.as_p }}
             {% else %}
-                <h3>Joueur</h3>
+                <h3>{% trans "Joueur" %}</h3>
                 {{ player_form.as_p}}
             {% endif %}
 
-            <button type="submit" class="btn btn-primary">Créer l'équipe</button>
+            <!-- Traduction du bouton de création à l'aide de {% trans "..." %} (Point 7) -->
+            <button type="submit" class="btn btn-primary">{% trans "Créer l'équipe" %}</button>
         </form>
     {% endif %}
 {% endblock %}

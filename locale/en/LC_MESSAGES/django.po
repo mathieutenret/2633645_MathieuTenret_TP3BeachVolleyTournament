@@ -1,0 +1,419 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-25 18:23-0400\n"
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\member_app\templates\edit_user.html:4
+#: .\member_app\templates\edit_user.html:7
+#: .\member_app\templates\forget_password.html:4
+#: .\member_app\templates\forget_password.html:7
+#: .\member_app\templates\login.html:4 .\member_app\templates\login.html:7
+#: .\member_app\templates\password_edit_success.html:4
+#: .\member_app\templates\password_edit_success.html:7
+#: .\member_app\templates\sign_in.html:7 .\tournaments\templates\about.html:7
+#: .\tournaments\templates\base.html:20 .\tournaments\templates\home.html:7
+#: .\tournaments\templates\one_player_form.html:7
+#: .\tournaments\templates\one_player_form.html:10
+#: .\tournaments\templates\one_player_form.html:16
+#: .\tournaments\templates\team_confirm_delete.html:5
+#: .\tournaments\templates\team_edit.html:5
+#: .\tournaments\templates\tournament_list.html:5
+#: .\tournaments\templates\two_players_form.html:7
+#: .\tournaments\templates\two_players_form.html:16
+#: .\tournaments\templates\two_players_form.html:32
+msgid "..."
+msgstr ""
+
+#: .\member_app\templates\edit_user.html:5
+#: .\member_app\templates\edit_user.html:12
+msgid "Modification de l'utilisateur"
+msgstr "Edit user profile"
+
+#: .\member_app\templates\edit_user.html:20
+#: .\member_app\templates\login.html:30
+msgid "Modifier votre mot de passe"
+msgstr "Change your password"
+
+#: .\member_app\templates\edit_user.html:21
+#: .\member_app\templates\forget_password.html:20
+#: .\member_app\templates\login.html:19 .\member_app\templates\sign_in.html:19
+#: .\tournaments\templates\team_confirm_delete.html:17
+#: .\tournaments\templates\team_edit.html:33
+msgid "Annuler"
+msgstr "Cancel"
+
+#: .\member_app\templates\edit_user.html:22
+#: .\member_app\templates\forget_password.html:21
+msgid "Valider les modifications"
+msgstr "Save changes"
+
+#: .\member_app\templates\forget_password.html:5
+#: .\member_app\templates\forget_password.html:12
+msgid "Modification du mot de passe"
+msgstr "Change password"
+
+#: .\member_app\templates\login.html:5 .\member_app\templates\login.html:12
+#: .\tournaments\templates\base.html:45
+msgid "Connexion"
+msgstr "Log in"
+
+#: .\member_app\templates\login.html:20 .\member_app\templates\sign_in.html:25
+msgid "Se connecter"
+msgstr "Log in"
+
+#: .\member_app\templates\login.html:24
+msgid "Pas encore de compte ?"
+msgstr "Don't have an account yet?"
+
+#: .\member_app\templates\login.html:25
+msgid "S'inscrire"
+msgstr "Sign up"
+
+#: .\member_app\templates\login.html:29
+msgid "Mot de passe oublié ?"
+msgstr "Forgot your password?"
+
+#: .\member_app\templates\password_edit_success.html:5
+msgid "Mot de passe modifié avec succès"
+msgstr "Password changed successfully"
+
+#: .\member_app\templates\password_edit_success.html:12
+msgid "Mot de passe modifié avec succès !"
+msgstr "Password changed successfully!"
+
+#: .\member_app\templates\password_edit_success.html:13
+msgid "Vous pouvez désormais vous connecter avec votre nouveau mot de passe"
+msgstr "You can now log in with your new password"
+
+#: .\member_app\templates\password_edit_success.html:14
+msgid "Retour à la page de connexion"
+msgstr "Return to the login page"
+
+#: .\member_app\templates\sign_in.html:5 .\member_app\templates\sign_in.html:12
+msgid "Inscription d'un utilisateur"
+msgstr "User registration"
+
+#: .\member_app\templates\sign_in.html:20
+msgid "Créer mon compte"
+msgstr "Create my account"
+
+#: .\member_app\templates\sign_in.html:24
+msgid "Déjà un compte ?"
+msgstr "Already have an account?"
+
+#: .\tournaments\models.py:6
+msgid "Nom du tournoi"
+msgstr "Tournament name"
+
+#: .\tournaments\models.py:8
+msgid "Date du tournoi"
+msgstr "Tournament date"
+
+#: .\tournaments\models.py:10
+msgid "Lieu du tournoi"
+msgstr "Tournament location"
+
+#: .\tournaments\models.py:13
+msgid "Image du tournoi"
+msgstr "Tournament image"
+
+#: .\tournaments\models.py:20
+msgid "tournoi"
+msgstr "tournament"
+
+#: .\tournaments\models.py:21
+msgid "tournois"
+msgstr "tournaments"
+
+#: .\tournaments\models.py:24
+msgid "Nom de l'équipe"
+msgstr "Team name"
+
+#: .\tournaments\models.py:26
+msgid "Tournoi"
+msgstr "Tournament"
+
+#: .\tournaments\models.py:28 .\tournaments\templates\tournament_list.html:33
+msgid "Payé"
+msgstr "Paid"
+
+#: .\tournaments\models.py:35
+msgid "équipe"
+msgstr "team"
+
+#: .\tournaments\models.py:36
+msgid "équipes"
+msgstr "teams"
+
+#: .\tournaments\models.py:39
+msgid "Prénom du joueur"
+msgstr "Player first name"
+
+#: .\tournaments\models.py:41
+msgid "Nom du joueur"
+msgstr "Player last name"
+
+#: .\tournaments\models.py:43
+msgid "Courriel"
+msgstr "Email"
+
+#: .\tournaments\models.py:45 .\tournaments\templates\one_player_form.html:11
+#: .\tournaments\templates\team_edit.html:13
+#: .\tournaments\templates\two_players_form.html:17
+msgid "Équipe"
+msgstr "Team"
+
+#: .\tournaments\models.py:52
+msgid "joueur"
+msgstr "player"
+
+#: .\tournaments\models.py:53
+msgid "joueurs"
+msgstr "players"
+
+#: .\tournaments\templates\about.html:8 .\tournaments\templates\base.html:50
+msgid "À propos"
+msgstr "About"
+
+#: .\tournaments\templates\about.html:12 .\tournaments\templates\about.html:25
+#: .\tournaments\templates\home.html:10
+msgid ""
+"Bienvenue dans notre application de gestion de tournois de Beach Volley !"
+msgstr "Welcome to our beach volleyball tournament management application!"
+
+#: .\tournaments\templates\about.html:14
+msgid ""
+"Cette application vous permet de gérer des tournois de Beach Volley 2 contre "
+"2."
+msgstr "This application lets you manage 2 vs 2 beach volleyball tournaments."
+
+#: .\tournaments\templates\about.html:16
+msgid "Chaque tournoi peut contenir 16 équipes au maximum."
+msgstr "Each tournament can have up to 16 teams."
+
+#: .\tournaments\templates\about.html:18
+#, fuzzy
+#| msgid ""
+#| "Une équipe peut être créée avec un seul joueur si celui-ci recherche un "
+#| "partenaire, via l'onglet \"Équipe 1 joueur\"."
+msgid ""
+"Une équipe peut être créée avec un seul joueur si celui-ci recherche un "
+"partenaire, via l\\"
+msgstr ""
+"A team can be created with just one player looking for a partner using the "
+"\"One-player team\" tab."
+
+#: .\tournaments\templates\about.html:20
+#, fuzzy
+#| msgid ""
+#| "Une équipe complète est composée de deux joueurs. Elle peut être "
+#| "directement créée via l'onglet \"Équipe 2 joueurs\"."
+msgid ""
+"Une équipe complète est composée de deux joueurs. Elle peut être directement "
+"créée via l\\"
+msgstr ""
+"A complete team consists of two players. It can be created directly using "
+"the \"Two-player team\" tab."
+
+#: .\tournaments\templates\about.html:22
+msgid ""
+"Une équipe de un joueur peut être complétée via le bouton \"Ajouter un "
+"partenaire\" de la page \"Tournois\"."
+msgstr ""
+"A one-player team can be completed using the \"Add a partner\" button on the "
+"\"Tournaments\" page."
+
+#: .\tournaments\templates\about.html:27
+msgid ""
+"Pour participer à un tournoi, veuillez faire une demande d'inscription par "
+"téléphone ou par courriel."
+msgstr "To participate in a tournament, please request registration by phone or email."
+
+#: .\tournaments\templates\about.html:29
+msgid "Téléphone :"
+msgstr "Phone :"
+
+#: .\tournaments\templates\about.html:31
+msgid "Courriel  :"
+msgstr "Email :"
+
+#: .\tournaments\templates\base.html:22
+msgid "Accueil"
+msgstr "Home"
+
+#: .\tournaments\templates\base.html:26
+#: .\tournaments\templates\tournament_list.html:8
+msgid "Tournois"
+msgstr "Tournaments"
+
+#: .\tournaments\templates\base.html:31
+msgid "Équipe 1 joueur"
+msgstr "One-player team"
+
+#: .\tournaments\templates\base.html:33
+msgid "Équipe 2 joueurs"
+msgstr "Two-player team"
+
+#: .\tournaments\templates\base.html:38
+msgid "Mon profil"
+msgstr "My profile"
+
+#: .\tournaments\templates\base.html:42
+msgid "Déconnexion"
+msgstr "Log out"
+
+#: .\tournaments\templates\base.html:47
+msgid "Inscription"
+msgstr "Sign up"
+
+#: .\tournaments\templates\home.html:8
+msgid "Gestion de tournois de Beach Volley (2 contre 2)"
+msgstr "Beach volleyball tournament management (2 vs 2)"
+
+#: .\tournaments\templates\home.html:12
+msgid "Voir les tournois"
+msgstr "View tournaments"
+
+#: .\tournaments\templates\home.html:16
+msgid "Tournois de Beach Volley"
+msgstr "Beach volleyball tournaments"
+
+#: .\tournaments\templates\one_player_form.html:8
+#: .\tournaments\templates\tournament_list.html:50
+msgid "Ajouter un partenaire"
+msgstr "Add a partner"
+
+#: .\tournaments\templates\one_player_form.html:17
+msgid "Ajouter le joueur"
+msgstr "Add player"
+
+#: .\tournaments\templates\team_confirm_delete.html:8
+msgid "Supprimer l'équipe"
+msgstr "Delete team"
+
+#: .\tournaments\templates\team_confirm_delete.html:10
+#, python-format
+msgid ""
+"Voulez-vous vraiment supprimer l'équipe <strong>%(team_name)s</strong> ?"
+msgstr ""
+"Are you sure you want to delete the team <strong>%(team_name)s</strong>?"
+
+#: .\tournaments\templates\team_confirm_delete.html:15
+#: .\tournaments\templates\tournament_list.html:61
+msgid "Supprimer"
+msgstr "Delete"
+
+#: .\tournaments\templates\team_edit.html:8
+msgid "Modifier l'équipe"
+msgstr "Edit team"
+
+#: .\tournaments\templates\team_edit.html:19
+#: .\tournaments\templates\two_players_form.html:22
+msgid "Joueur 1"
+msgstr "Player 1"
+
+#: .\tournaments\templates\team_edit.html:26
+#: .\tournaments\templates\two_players_form.html:25
+msgid "Joueur 2"
+msgstr "Player 2"
+
+#: .\tournaments\templates\team_edit.html:31
+msgid "Enregistrer"
+msgstr "Save"
+
+#: .\tournaments\templates\tournament_list.html:23
+msgid "Nombre d'équipes"
+msgstr "Number of teams"
+
+#: .\tournaments\templates\tournament_list.html:35
+msgid "Non payé"
+msgstr "Unpaid"
+
+#: .\tournaments\templates\tournament_list.html:42
+msgid "Aucun joueur"
+msgstr "No players"
+
+#: .\tournaments\templates\tournament_list.html:46
+msgid "Recherche un partenaire"
+msgstr "Looking for a partner"
+
+#: .\tournaments\templates\tournament_list.html:56
+msgid "Modifier"
+msgstr "Edit"
+
+#: .\tournaments\templates\tournament_list.html:66
+msgid "Aucune équipe inscrite !"
+msgstr "No teams registered!"
+
+#: .\tournaments\templates\tournament_list.html:76
+msgid "Précédent"
+msgstr "Previous"
+
+#: .\tournaments\templates\tournament_list.html:88
+msgid "Suivant"
+msgstr "Next"
+
+#: .\tournaments\templates\tournament_list.html:94
+msgid "Aucun tournoi disponible pour le moment !"
+msgstr "No tournaments available at the moment!"
+
+#: .\tournaments\templates\two_players_form.html:9
+msgid "Créer une équipe de deux joueurs"
+msgstr "Create a two-player team"
+
+#: .\tournaments\templates\two_players_form.html:11
+msgid "Créer une équipe d'un joueur"
+msgstr "Create a one-player team"
+
+#: .\tournaments\templates\two_players_form.html:28
+msgid "Joueur"
+msgstr "Player"
+
+#: .\tournaments\templates\two_players_form.html:33
+msgid "Créer l'équipe"
+msgstr "Create team"
+
+#: .\tournaments\views.py:47 .\tournaments\views.py:77
+msgid "Impossible de créer cette équipe : le tournoi possède déjà 16 équipes !"
+msgstr "Cannot create this team: the tournament already has 16 teams!"
+
+#: .\tournaments\views.py:55 .\tournaments\views.py:89
+msgid "L'équipe a été créée avec succès !"
+msgstr "The team was created successfully!"
+
+#: .\tournaments\views.py:105
+msgid "Cette équipe possède déjà deux joueurs !"
+msgstr "This team already has two players!"
+
+#: .\tournaments\views.py:116
+msgid "Le joueur a été ajouté avec succès !"
+msgstr "The player was added successfully!"
+
+#: .\tournaments\views.py:149
+msgid ""
+"Impossible de déplacer cette équipe : le tournoi possède déjà 16 équipes !"
+msgstr "Cannot move this team: the tournament already has 16 teams!"
+
+#: .\tournaments\views.py:158
+msgid "L'équipe et les joueurs ont été modifiés avec succès !"
+msgstr "The team and players were updated successfully!"
+
+#: .\tournaments\views.py:180
+msgid "L'équipe a été supprimée avec succès !"
+msgstr "The team was deleted successfully!"
+
+#~ msgid "Prénom"
+#~ msgstr "First name"
+
+#~ msgid "Nom"
+#~ msgstr "Last name"
+
+#~ msgid "Email"
+#~ msgstr "Email"
+
+#~ msgid "Payé ?"
+#~ msgstr "Paid?"

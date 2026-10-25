@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+<!-- Chargement des outils de traduction (Point 7) -->
+{% load i18n %}
+<!-- Traduction du titre de la page à l'aide de {% trans "..." %} (Point 7) -->
+{% block title %}{% trans "Connexion" %}{% endblock %}
+
+<!-- Traduction des boutons et des textes à l'aide de {% trans "..." %} (Point 7)-->
+{% block content %}
+<div class="container-fluid member-app">
+    <div class="row">
+        <div class="col-md-10 col-lg-8 mx-auto">
+            <h2>{% trans "Connexion" %}</h2>
+            <br />
+
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <a href="{% url 'home' %}" class="btn btn-secondary">{% trans "Annuler" %}</a>
+                <button type="submit" class="btn btn-primary">{% trans "Se connecter" %}</button>
+            </form>
+
+            <p class="mt-3">
+                {% trans "Pas encore de compte ?" %}
+                <a href="{% url 'sign_in' %}">{% trans "S'inscrire" %}</a>
+            </p>
+
+            <p class="mt-3">
+                {% trans "Mot de passe oublié ?" %}
+                <a href="{% url 'edit_user' %}">{% trans "Modifier votre mot de passe" %}</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
